@@ -1,7 +1,7 @@
 import java.time.LocalDate;
 import java.util.Scanner;
 
-public class MensturalCycleCalculator{
+public class MenstrualCycleCalculator{
 static Scanner input = new Scanner(System.in);
 	public static void main (String []args){
 	System.out.print("Enter the first day of your last period (Year e.g 2025): ");

@@ -37,8 +37,8 @@ function getCreditCardValidityStatus(cardNumber) {
     return sum % 10 === 0 ? 'Valid' : 'Invalid';
 }
 
-
-let userInput = prompt('Enter a credit card number: ').replace(/[^0-9]/g,);
+const prompt = require('prompt-sync')();
+let userInput = prompt('Enter a credit card number: ').replace(/[^0-9]/g, );
 console.log(`Card Type: ${getCreditCardType(userInput)}`);
 console.log(`Card Digit Length: ${getCreditCardDigitLength(userInput)}`);
 console.log(`Card Validity Status: ${getCreditCardValidityStatus(userInput)}`);

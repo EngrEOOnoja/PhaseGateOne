@@ -40,24 +40,21 @@ static Scanner input = new Scanner(System.in);
 	
 	
 	}
-
- public static LocalDate getNextPredictedPeriod(LocalDate lastPeriod, int cycleLength){
-		 return lastPeriod.plusDays(cycleLength);
-
-}
- public static LocalDate getPredictedOvulationDate(LocalDate nextPeriod){
- 	return getPredictedOvulationDate(nextPeriod).minusDays(14);
+public static LocalDate getNextPredictedPeriod(LocalDate lastPeriod, int cycleLength){
+    return lastPeriod.plusDays(cycleLength);
 }
 
+public static LocalDate getPredictedOvulationDate(LocalDate nextPeriod){
+    return nextPeriod.minusDays(14);
+}
 
 public static LocalDate getFertileWindowStart(LocalDate nextPeriod) {
-        return getPredictedOvulationDate(nextPeriod).minusDays(5);
-    }
-
+    return getPredictedOvulationDate(nextPeriod).minusDays(5);
+}
 
 public static LocalDate getFertileWindowEnd(LocalDate nextPeriod) {
-        return getPredictedOvulationDate(nextPeriod).plusDays(1);
-    }
+    return getPredictedOvulationDate(nextPeriod).plusDays(1);
+}
 	
 }
 

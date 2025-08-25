@@ -28,7 +28,7 @@ public class MenstrualCycleCalculatorTest {
     		//Arrange
 
         LocalDate nextPeriod = LocalDate.of(2025, 9, 17);
-        LocalDate expected = LocalDate.of(2025, 9, 1);
+        LocalDate expected = LocalDate.of(2025, 9, 3);
 	
 	//Act
         LocalDate result = MenstrualCycleCalculator.getPredictedOvulationDate(nextPeriod);

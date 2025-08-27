@@ -40,7 +40,7 @@ function mainMenu() {
   });
   console.log("--------------------------------------------------");
    let discount = (total * ( userDiscount / 100));
-   let VAT = (total * (17.5 / 100));
+   let VAT = (total * (7.5 / 100));
      console.log(VAT);
      console.log(discount);
 

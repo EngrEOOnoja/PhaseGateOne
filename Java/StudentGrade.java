@@ -4,53 +4,66 @@ public class StudentGrade {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-       
-        System.out.print("Enter Number of Students: ");
+        System.out.print("Enter Number of Students : ");
         int numberOfStudents = input.nextInt();
-        input.nextLine(); // Consume newline left-over
+        input.nextLine(); 
 
-        System.out.print("Enter Number of Subjects: ");
+        System.out.print("Enter Number of Subjects : ");
         int numberOfSubjects = input.nextInt();
-        input.nextLine(); // Consume newline left-over
+        input.nextLine(); 
 
         String[] studentNames = new String[numberOfStudents];
         double[][] studentGrades = new double[numberOfStudents][numberOfSubjects];
+        double[] studentAverages = new double[numberOfStudents];
+        int[] studentPositions = new int[numberOfStudents];
 
-        for (int i = 0; i < numberOfStudents; i++) {
-            System.out.print("Student Name: ");
-            studentNames[i] = input.next();
+        for (int index = 0; index < numberOfStudents; index++) {
+            System.out.print("Student Name :");
+            studentNames[index] = input.nextLine();
 
-            for (int j = 0; j < numberOfSubjects; j++) {
-           	while(true){
-                System.out.print("Enter grade for subject " + (j + 1) + ": ");
-                studentGrades[i][j] = input.nextDouble();
-                if(studentGrades[i][j] >= 0 && studentGrades[i][j] < 101){
-                		break;                
-                }
-                else{
-                	System.out.println("Score Must Be between 0 - 100 Try again");
-                	}
-                 }
-             }
-       }
-	
-              for (int i = 0; i < numberOfStudents; i++) {
-            System.out.println( studentNames[i]);
             double total = 0;
-            int position = ;
-            for (int j = 0; j < numberOfSubjects; j++) {
-            	if(position[
-                System.out.print(  (j + 1) + " : " + studentGrades[i][j] + "\t");
-                
-                total += studentGrades[i][j];
+            for (int count = 0; count < numberOfSubjects; count++) {
+                while (true) {
+                    System.out.print("Enter grade for subject " + (count + 1) );
+                    studentGrades[index][count] = input.nextDouble();
+                    input.nextLine(); 
+                    if (studentGrades[index][count] >= 0 && studentGrades[index][count] <= 100) {
+                        break;
+                    } else {
+                        System.out.println("Score Must Be between 0 - 100 Try again");
+                    }
+                }
+                total += studentGrades[index][count];
             }
-            double average = total / numberOfSubjects;
-            System.out.println("Total grade: " + "\t");
-             System.out.print("====================================== ");
-            System.out.println("Total grade: " + total + "\t");
-            System.out.println("Average grade: " + average + "\t");
-            
-           }
+            studentAverages[index] = total / numberOfSubjects;
         }
+        
+        
+         System.out.println("Student Name: " + studentNames[index]);
+            System.out.println("Grades:");
+            for (int count = 0; count < numberOfSubjects; count++) {
+                System.out.println("Grade for subject " + (count + 1) + ": " + studentGrades[index][count]);
+            }
+            System.out.println("Average grade: " + studentAverages[index]);
+            System.out.println();
+        }
+
+
+     
+         
+
+        for (int index = 0; index < numberOfStudents; index++) {
+            System.out.print(studentNames[index] + "\t");
+            for (int count = 0; count < numberOfSubjects; count++) {
+                System.out.print(studentGrades[index][count] + "\t");
+            }
+           System.out.printf("%.2f\t%d\n", studentAverages[index], studentPositions[index]);
+
+        }
+                
     }
+    
+}
+
+
 

@@ -6,11 +6,11 @@ public class StudentGrade {
 
         System.out.print("Enter Number of Students : ");
         int numberOfStudents = input.nextInt();
-        input.nextLine(); 
+        input.nextLine();
 
         System.out.print("Enter Number of Subjects : ");
         int numberOfSubjects = input.nextInt();
-        input.nextLine(); 
+        input.nextLine();
 
         String[] studentNames = new String[numberOfStudents];
         double[][] studentGrades = new double[numberOfStudents][numberOfSubjects];
@@ -24,9 +24,9 @@ public class StudentGrade {
             double total = 0;
             for (int count = 0; count < numberOfSubjects; count++) {
                 while (true) {
-                    System.out.print("Enter grade for subject " + (count + 1) );
+                    System.out.print("Enter grade for subject " + (count + 1));
                     studentGrades[index][count] = input.nextDouble();
-                    input.nextLine(); 
+                    input.nextLine();
                     if (studentGrades[index][count] >= 0 && studentGrades[index][count] <= 100) {
                         break;
                     } else {
@@ -36,10 +36,8 @@ public class StudentGrade {
                 total += studentGrades[index][count];
             }
             studentAverages[index] = total / numberOfSubjects;
-        }
-        
-        
-         System.out.println("Student Name: " + studentNames[index]);
+
+            System.out.println("Stu nam: " + studentNames[index]);
             System.out.println("Grades:");
             for (int count = 0; count < numberOfSubjects; count++) {
                 System.out.println("Grade for subject " + (count + 1) + ": " + studentGrades[index][count]);
@@ -48,22 +46,31 @@ public class StudentGrade {
             System.out.println();
         }
 
-
-     
-         
-
+    
         for (int index = 0; index < numberOfStudents; index++) {
+            int position = 1;
+            for (int count = 0; count < numberOfStudents; count++) {
+                if (studentAverages[index] < studentAverages[count]) {
+                    position++;
+                }
+            }
+            studentPositions[index] = position;
+        }
+
+        System.out.print("Stu N");
+        for (int count = 0; count < numberOfSubjects; count++) {
+            System.out.print("\tSub" + (count + 1));
+        }
+        System.out.println("\tAve\tPos");
+
+              for (int index = 0; index < numberOfStudents; index++) {
             System.out.print(studentNames[index] + "\t");
             for (int count = 0; count < numberOfSubjects; count++) {
                 System.out.print(studentGrades[index][count] + "\t");
             }
-           System.out.printf("%.2f\t%d\n", studentAverages[index], studentPositions[index]);
-
+            System.out.printf("%.2f\t%d\n", studentAverages[index], studentPositions[index]);
         }
-                
     }
-    
 }
-
 
 
